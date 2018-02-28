@@ -176,8 +176,8 @@ object DualIndexingSolution {
             val gzipIn = new GZIPInputStream(bais)
             val objectIn = new ObjectInputStream(gzipIn)
             val content = objectIn.readObject().asInstanceOf[Array[LineSegment]]
-            //Trajectory.hausdorffDistance(bc_query.value, content)
-            Trajectory.discreteFrechetDistance(bc_query.value, content)
+            Trajectory.hausdorffDistance(bc_query.value, content)
+            //Trajectory.discreteFrechetDistance(bc_query.value, content)
           })
           .takeOrdered(k).last
         val end2 = System.currentTimeMillis()
